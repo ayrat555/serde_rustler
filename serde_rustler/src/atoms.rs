@@ -1,6 +1,7 @@
 //! Constants and utilities for conversion between Rust string-likes and Elixir atoms.
 
 use crate::Error;
+use lazy_static::lazy_static;
 use rustler::{types::atom::Atom, Encoder, Env, Term};
 
 lazy_static! {
@@ -8,16 +9,16 @@ lazy_static! {
     pub static ref ERROR: String = String::from("error");
 }
 
-rustler_atoms! {
-    atom nil;
-    atom ok;
-    atom error;
-    atom true_ = "true";
-    atom false_ = "false";
-    atom __struct__;
-    atom coef;
-    atom exp;
-    atom sign;
+rustler::atoms! {
+  nil,
+  ok,
+  error,
+  true_ = "true",
+  false_ = "false",
+  __struct__,
+  coef,
+  exp,
+  sign,
 }
 
 /**

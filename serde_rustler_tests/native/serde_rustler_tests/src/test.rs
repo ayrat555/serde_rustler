@@ -193,7 +193,7 @@ where
 {
     match to_term(env, actual) {
         Err(reason) => {
-            let reason_term = reason.description().encode(env);
+            let reason_term = reason.to_string().encode(env);
             TestResult::Err(error_tuple(env, reason_term))
         }
         Ok(actual_term) => {
@@ -213,7 +213,7 @@ where
 {
     match from_term(expected_term) {
         Err(reason) => {
-            let reason_term = reason.description().encode(env);
+            let reason_term = reason.to_string().encode(env);
             TestResult::Err(error_tuple(env, reason_term))
         }
         Ok(expected) => {
